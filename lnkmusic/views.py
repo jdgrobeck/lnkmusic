@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+from lnkmusic.models import Venue
+
+def homepage(request):
+    venues = Venue.objects.all()
+    context = {'venues': venues}
+    return render(request, 'index.html', context)
