@@ -3,37 +3,39 @@
     <head>
         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
         
-        <script type="text/javascript" src="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js".></script>
     </head>
     <body>
     
-        <style type+"text/css">
-            #map { height: 450px;}
-        </style>
-        
         <div id="map" style="width: 650px; height: 450px; position: relative;" class="leaflet-container leaflet-fade-anim" tabindex="0"></div>
 
-    var map = L.map("map" style="width: 600px; height: 400px; position: relative;" class="leaflet-container leaflet-fade-anim" tabindex="6")
         
+        <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+ <script>  
+     
+var map = L.map( 'map', {
+    center: [20.0, 5.0],
+    minZoom: 2,
+    zoom: 2
+});
+    
+    
     map.setView([40.806862, -96.681679], 10); 
-        L.tileLayer(
-            'http://{s}.tile.osm.org/{z}/{x}/{y}.png', ){
-            
-            attribution: Map data &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-            maxZoom: 14,
-            minZoom: 8
-            accessToken: 
-        }).addTo(Map);
-
+        
+    L.tileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright" title="OpenStreetMap" target="_blank">OpenStreetMap</a> contributors | Tiles Courtesy of <a href="http://www.mapquest.com/" title="MapQuest" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" width="16" height="16">',
+    subdomains: ['otile1','otile2','otile3','otile4']
+}).addTo(map);
+   
 {% for object in venues %}
-L.marker([{{ object.latitude }}], [{{ object.longitude }}]).bindPopup("<a href="{{ objects.get_absolute_url }}">{{ object.name }}</a>").addTo(map);
+L.marker([{{ object.latitude }}, -{{ object.longitude }}]).addTo(map)
+			.bindPopup("<a href=\"{{ object.get_absolute_url }}\">{{ object.name }}</a>").openPopup();
 {% endfor %}
-        
-        
+   
+     
+     
         var credits = L.control.attribution().addTo(map);
 credits.addAttribution("© <a href='https://www.mapbox.com/map-feedback/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>");
-    
-})
+
         
         
 </script>    
