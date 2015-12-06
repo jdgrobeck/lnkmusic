@@ -1,20 +1,12 @@
 from django.contrib import admin
 
-from .models import PBA
+from .models import Venue, Genre, Show
+ 
+admin.site.register(Venue)
 
-admin.site.register(PBA)
+admin.site.register(Genre)
 
-from .models import Bourbon
-
-admin.site.register(Bourbon)
-
-from .models import Vega
-
-admin.site.register(Vega)
-
-from .models import SingleBarrel
-
-admin.site.register(SingleBarrel)
+admin.site.register(Show)
 
 
 
