@@ -1,6 +1,3 @@
-This is my readme.
-test
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,12 +28,11 @@ $(document).ready(function() {
             minZoom: 8
             accessToken: 
         }).addTo(Map);
-        
-var lincolnmarker = L.marker([map_data[40.806862].latitude, map_data[-96.681679].longitude]);
-    lincolnMarker.addTo(map);
-    lincolnMarker.binPopup('<h3>Lincoln'+map_data[0].city + '</h3>');
-    lincolnMarker.addTo(map);
-    
+
+{% for object in venues %}
+L.marker([{{ object.latitude }}, {{ object.longitude }}]).bindPopup("<a href="{{ objects.get_absolute_url }}">{{ object.name }}</a>").addTo(map);
+{% endfor %}
+
     var pinnaclebankarenaMarker = 
 L.marker ([map_data[40.8178].latitude, map_data[96.7133].longitude]); 
 pinnaclebankarenaMarker.bindPopup('<h3>This is the venue for pinnacle bank arena' + map_data[1].city + </h3>'); pinnaclebankarenaMarker.addTo(map);

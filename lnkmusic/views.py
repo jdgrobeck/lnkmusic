@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from lnkmusic.models import Venue
 
-from .models import PBA, Bourbon, Vega, Single Barrel
-
+def homepage(request):
+    venues = Venue.objects.all()
+    context = {'venues': venues}
+    return render(request, 'index.html', context)
 
