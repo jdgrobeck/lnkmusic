@@ -13,11 +13,11 @@
         
         <div id="map" style="width: 650px; height: 450px; position: relative;" class="leaflet-container leaflet-fade-anim" tabindex="0"></div>
 
-$(document).ready(function() {
+<script>
+    
+$(document).ready(function) {
 
-})
-        
-        var map = L.map("map" style="width: 650px; height: 450px; position: relative;" class="leaflet-container leaflet-fade-anim" tabindex="0")
+    var map = L.map("map" style="width: 650px; height: 450px; position: relative;" class="leaflet-container leaflet-fade-anim" tabindex="0")
         
     map.setView([40.806862, -96.681679], 10); 
         L.tileLayer(
@@ -30,23 +30,14 @@ $(document).ready(function() {
         }).addTo(Map);
 
 {% for object in venues %}
-L.marker([{{ object.latitude }}, {{ object.longitude }}]).bindPopup("<a href="{{ objects.get_absolute_url }}">{{ object.name }}</a>").addTo(map);
+L.marker([{{ object.latitude }}], [{{ object.longitude }}]).bindPopup("<a href="{{ objects.get_absolute_url }}">{{ object.name }}</a>").addTo(map);
 {% endfor %}
-
-    var pinnaclebankarenaMarker = 
-L.marker ([map_data[40.8178].latitude, map_data[96.7133].longitude]); 
-pinnaclebankarenaMarker.bindPopup('<h3>This is the venue for pinnacle bank arena' + map_data[1].city + </h3>'); pinnaclebankarenaMarker.addTo(map);
-
-var vegaMarker = L.marker9(map_data[40.51164].latitude, map_data[96.42337857].longitude]); vegaMarker.bindPopup('<h3>This is the venue for vega' + map_data[2].city + '</h3>'); vegaMarker.addTo(map);
-
-var bourbonMarker = 
-L.marker 9[map_data[40.48497132].latitude, map_data[96.4259766].longitude]); 
-bourbonMarker.bindPopup('<h3>This is the venue for the bourbon</h3>'); 
-marker.addTo(map);
-
         
         
         var credits = L.control.attribution().addTo(map);
 credits.addAttribution("© <a href='https://www.mapbox.com/map-feedback/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>");
     
-            
+})
+        
+        
+</script>    
