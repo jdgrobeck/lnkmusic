@@ -30,8 +30,8 @@ class Show(models.Model):
     grossrevenue = models.FloatField()
     def __unicode__(self):
         return self.name
-    def get_absolute_url(self)
-        return "/genre/%s" % self.name_slug
+    def get_absolute_url(self):
+        return "/show/%s" % self.name_slug
     
 
 
