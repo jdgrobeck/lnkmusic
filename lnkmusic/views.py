@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from lnkmusic.models import Venue
+from lnkmusic.models import Venue, Show
 
 def homepage(request):
     venues = Venue.objects.all()
@@ -8,6 +8,7 @@ def homepage(request):
     
 def venuedetail(request,venue_slug):
     venue = Venue.objects.get(name_slug=venue_slug)
-    context = {'venue': venue}
+    shows = Show.objects.filter(venue=venue).order_by('show_date')
+    context = {'venue': venue, 'shows': shows}
     return render(request, 'venuedetail.html', context)   
     

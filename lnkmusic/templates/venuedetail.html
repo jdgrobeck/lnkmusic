@@ -1,1 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
 {{ venue }} 
+
+<div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Date</th>
+		  <th>Artist</th>
+                  <th>Genre</th>
+                  <th>Attendance</th>
+		  <th>Ticket Price</th>
+		  <th>Gross Revenue</th>
+                </tr>
+              </thead>
+              <tbody>
+		{% for object in shows %}<tr>
+			<td>{{ object.show_date }}</td>
+			<td>{{ object.name }}</td>
+			<td>{{ object.genre }}</td>
+			<td>{{ object.attendance }}</td>
+			<td>{{ object.ticketprice }}</td>
+			<td>{{ object.grossrevenue }}</td>
+		      </tr>{% endfor %}
+		</tbody>
+		</table>
+	       </div>
+
+{% endblock %}
