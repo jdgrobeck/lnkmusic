@@ -1,15 +1,20 @@
 {% extends "base.html" %}
 
-{% block content %}
-
-{{ venue }} 
-
+{% block scripts %}
 <style>
 body {
     background-image:url('/static/images/lincolnskyline.jpg');
   
 }
 </style>
+
+{% endblock %}
+
+{% block content %}
+
+{{ venue }} 
+
+<img src="/{{ venue.photo }}" />
 
 <div class="table-responsive">
             <table class="table table-striped">

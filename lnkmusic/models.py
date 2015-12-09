@@ -5,7 +5,7 @@ class Venue(models.Model):
     name_slug = models.SlugField()
     latitude = models.FloatField(blank=True, null=True)
     longitude = models.FloatField(blank=True, null=True)
-    photo = models.FileField(upload_to="lnkmusic/static/photos", blank=True, null=True)
+    photo = models.FileField(upload_to="static/photos", blank=True, null=True)
     def __unicode__(self):
         return self.name
     def get_absolute_url(self):
