@@ -11,4 +11,9 @@ def venuedetail(request,venue_slug):
     shows = Show.objects.filter(venue=venue).order_by('show_date')
     context = {'venue': venue, 'shows': shows}
     return render(request, 'venuedetail.html', context)   
+
+def aboutdetail(request):
+    context = {}
+    return render(request, 'aboutdetail.html', context) 
+
     

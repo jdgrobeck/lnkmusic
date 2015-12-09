@@ -21,5 +21,8 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.homepage, name='lincolnmusic'),
     url(r'^venue/(?P<venue_slug>[\w-]+)$',views.venuedetail),
+    url(r'^about/$', views.aboutdetail, name='about'),
+    
+    
 ]
 
